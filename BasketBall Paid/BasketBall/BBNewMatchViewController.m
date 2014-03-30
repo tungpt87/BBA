@@ -366,7 +366,6 @@ static BBState *state;
                 if (!action.isReplaced) {
                     [actions addObject:[action dictionary]];
                 }
-                
             }
             
             NSString *strDate = [CommonUtils dateTimeStringWithDate:matchDate

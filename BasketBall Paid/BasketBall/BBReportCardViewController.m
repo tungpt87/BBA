@@ -127,8 +127,7 @@
                     if (isClockDisabled) {
                         strTimeOn = kDisableTimeTitle;
                     } else {
-                        strTimeOn = [CommonUtils dateTimeStringWithDate:[NSDate dateWithTimeIntervalSince1970:timeOn]
-                                               formatString:@"mm:ss"];
+                        strTimeOn = [NSString stringWithFormat:@"%.2d:%.2d",timeOn/60,timeOn%60];
 
                     }
                     strHTML = [strHTML stringByReplacingOccurrencesOfString:[NSString stringWithFormat:HTMLFORM_REPORTCARD_TAG_PLAYERTIMEON,i+1]
@@ -512,16 +511,17 @@
                                                  withString:[NSString stringWithFormat:@"%d",allSteal]];
     strHTML = [strHTML stringByReplacingOccurrencesOfString:HTMLFORM_REPORTCARD_TAG_ALLASSIST
                                                  withString:[NSString stringWithFormat:@"%d",allAssist]];
-    NSDate *dateTimeOn = [NSDate dateWithTimeIntervalSince1970:allTimeOn];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"mm:ss"];
+//    NSDate *dateTimeOn = [NSDate dateWithTimeIntervalSince1970:allTimeOn];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"HH:mm:ss"];
     NSString *strTimeOn = nil;
     if (isClockDisabled) {
         strTimeOn = kDisableTimeTitle;
     } else {
-        strTimeOn = [dateFormatter stringFromDate:dateTimeOn];
+//        strTimeOn = [dateFormatter stringFromDate:dateTimeOn];
+        strTimeOn = [NSString stringWithFormat:@"%.2d:%.2d",allTimeOn/60,allTimeOn%60];
     }
-    [dateFormatter release];
+//    [dateFormatter release];
     strHTML = [strHTML stringByReplacingOccurrencesOfString:HTMLFORM_REPORTCARD_TAG_ALLTIMEON
                                                  withString:strTimeOn];
     strHTML = [strHTML stringByReplacingOccurrencesOfString:HTMLFORM_REPORTCARD_TAG_ALLREBOUND
