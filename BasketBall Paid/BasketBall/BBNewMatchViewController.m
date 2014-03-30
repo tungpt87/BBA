@@ -1856,7 +1856,11 @@ static BBState *state;
         [btnDisableClock setEnabled:NO];
     }
     BBPlayerView *playerView = [notification object];
-    [(BBPlayerTableView*)playerView.superview setFlashing:NO];
+    if (SYSTEM_VERSION < 7) {
+        [(BBPlayerTableView*)playerView.superview setFlashing:NO];
+    } else {
+        [(BBPlayerTableView*)playerView.superview.superview setFlashing:NO];
+    }
 }
 
 - (void) initialAction{

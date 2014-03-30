@@ -444,6 +444,6 @@ typedef enum {
 
 #define STATISTICSVIEW_PLAYERINDEX_ALL          0
 
-
+#define SYSTEM_VERSION                  [[[UIDevice currentDevice] systemVersion] floatValue]
 
 
