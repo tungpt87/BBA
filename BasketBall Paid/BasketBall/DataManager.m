@@ -348,7 +348,7 @@ static DataManager * _instance;
 }
 
 +(void) userDefaultRemoveObjectForKey:(NSString*)key{
-    if ([self userDefaultObjectForKey:key]) {
+    if ([DataManager userDefaultObjectForKey:key]) {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
